@@ -1,5 +1,5 @@
 ﻿const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { COR_PADRAO } = require("../../config/constants");
+const { COR_PRETO } = require("../../config/constants");
 
 module.exports = {
   customId: "modal_add_produto",
@@ -11,7 +11,7 @@ module.exports = {
     const imagem = interaction.fields.getTextInputValue("prod_imagem");
 
     const embedPreview = new EmbedBuilder()
-      .setColor(COR_PADRAO)
+      .setColor(COR_PRETO)
       .setTitle(nome)
       .setDescription(descricao)
       .addFields(
@@ -24,12 +24,14 @@ module.exports = {
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId("btn_confirmar_postagem")
-        .setLabel("✅ Confirmar Postagem")
-        .setStyle(ButtonStyle.Success),
+        .setLabel("Confirmar Postagem")
+        .setEmoji("✅")
+        .setStyle(ButtonStyle.Secondary),
       new ButtonBuilder()
         .setCustomId("btn_cancelar_postagem")
-        .setLabel("❌ Cancelar")
-        .setStyle(ButtonStyle.Danger)
+        .setLabel("Cancelar")
+        .setEmoji("❌")
+        .setStyle(ButtonStyle.Secondary)
     );
 
     await interaction.reply({

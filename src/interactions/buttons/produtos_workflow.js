@@ -1,5 +1,5 @@
 ﻿const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { CANAL_ROUPAS_ID, COR_PADRAO } = require("../../config/constants");
+const { CANAL_ROUPAS_ID, COR_PRETO } = require("../../config/constants");
 
 module.exports = [
   {
@@ -65,7 +65,9 @@ module.exports = [
         return interaction.reply({ content: "❌ Canal de roupas não encontrado.", ephemeral: true });
       }
 
-      const postEmbed = EmbedBuilder.from(embedPreview).setTitle(`👔 ${embedPreview.title}`);
+      const postEmbed = EmbedBuilder.from(embedPreview)
+        .setTitle(`👔 ${embedPreview.title}`)
+        .setFooter({ text: "Postado via Painel Administrativo" });
       
       await canalRoupas.send({ embeds: [postEmbed] });
 
