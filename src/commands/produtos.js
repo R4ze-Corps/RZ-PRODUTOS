@@ -1,4 +1,4 @@
-const {
+﻿const {
   SlashCommandBuilder,
   EmbedBuilder,
   ActionRowBuilder,
@@ -12,15 +12,13 @@ module.exports = {
   name: "produtos",
   data: new SlashCommandBuilder()
     .setName("produtos")
-    .setDescription("Abre o painel de gerenciamento de produtos.")
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
+    .setDescription("Abre o painel de gerenciamento de roupas.")
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction) {
     const embed = new EmbedBuilder()
       .setColor(COR_PADRAO)
-      .setTitle("📦 Painel de Controle de Produtos")
-      .setDescription(
-        "Clique no botão abaixo para cadastrar uma nova peça de roupa no catálogo.",
-      )
+      .setTitle("📦 Painel de Controle de Roupas")
+      .setDescription("Clique no botão abaixo para cadastrar uma nova peça de roupa no catálogo.")
       .setFooter({ text: "Apenas administradores podem ver este painel." });
 
     const row = new ActionRowBuilder().addComponents(
