@@ -1,8 +1,4 @@
-const buttonHandler = require("./interactions/buttonHandler");
-const modalHandler = require("./interactions/modalHandler");
-const selectMenuHandler = require("./interactions/selectMenuHandler");
-
-module.exports = async (interaction, client) => {
+﻿module.exports = async (interaction, client) => {
   try {
     // --- SLASH COMMANDS ---
     if (interaction.isChatInputCommand()) {
@@ -11,23 +7,33 @@ module.exports = async (interaction, client) => {
       await command.execute(interaction, client);
     }
 
-    // --- BUTTONS ---
-    if (interaction.isButton()) {
-      await buttonHandler(interaction, client);
-    }
-
-    // --- MODALS ---
-    if (interaction.isModalSubmit()) {
-      await modalHandler(interaction, client);
-    }
-
-    // --- SELECT MENUS ---
-    if (
+    // --- COMPONENTES V2 (Buttons, Modals, Select Menus) ---
+    let collection;
+    if (interaction.isButton()) collection = client.buttons;
+    else if (interaction.isModalSubmit()) collection = client.modals;
+    else if (
       interaction.isStringSelectMenu() ||
       interaction.isUserSelectMenu() ||
       interaction.isRoleSelectMenu()
-    ) {
-      await selectMenuHandler(interaction, client);
+    )
+      collection = client.selectMenus;
+
+    if (collection) {
+      // Busca exata primeiro
+      let component = collection.get(interaction.customId);
+
+      // Se não encontrar exato, busca por prefixo (mais longo primeiro)
+      if (!component) {
+        const key = Array.from(collection.keys())
+          .filter(k => interaction.customId.startsWith(k))
+          .sort((a, b) => b.length - a.length)[0];
+        
+        if (key) component = collection.get(key);
+      }
+
+      if (component) {
+        return await component.execute(interaction, client);
+      }
     }
   } catch (error) {
     console.error("Erro no Interaction Handler:", error);
