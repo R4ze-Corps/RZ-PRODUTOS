@@ -1,0 +1,2 @@
+﻿★ CHANGELOGS - Raze Corporation
+▸ (M-3.4) Correção de Build Definitiva: Ajustada assinatura da função run no Modal e adicionado retorno explícito em todos os caminhos para satisfazer o compilador.

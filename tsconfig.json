@@ -1,0 +1,26 @@
+﻿{
+	"extends": "./node_modules/@constatic/base/tsconfig/base.json",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ESNext",
+		"types": ["node"],
+		"outDir": "./build",
+		"rootDir": "./src",
+		"paths": {
+			"#env": ["./src/env.ts"],
+			"#base": ["./src/discord/index.ts"],
+			"#functions": ["./src/functions/index.ts"],
+			"#database": ["./src/database/index.ts"],
+			"#server": ["./src/server/index.ts"],
+			"#menus": ["./src/menus/index.ts"],
+			"#tools": ["./src/tools/index.ts"],
+			"#lib/*": ["./src/lib/*"],
+			"#shared/*": ["./src/shared/*"],
+			"#types/*": ["./src/@types/*"],
+			"#emojis": ["./emojis.json"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["node_modules"]
+}
