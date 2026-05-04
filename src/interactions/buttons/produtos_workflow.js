@@ -87,5 +87,20 @@ module.exports = [
         components: []
       });
     }
+  },
+  {
+    customId: "btn_fechar_painel",
+    async execute(interaction) {
+      // Tenta fechar/limpar o painel apagando a mensagem original
+      try {
+        if (interaction.message && interaction.message.deletable) {
+          await interaction.message.delete();
+        } else {
+          await interaction.reply({ content: "Painel fechado.", ephemeral: true });
+        }
+      } catch {
+        await interaction.reply({ content: "Não foi possível fechar o painel.", ephemeral: true });
+      }
+    }
   }
 ];
