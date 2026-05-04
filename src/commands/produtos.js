@@ -27,19 +27,22 @@ module.exports = {
       )
       .setFooter({ text: "Raze Corp • Sistema de Catálogo", iconURL: interaction.client.user.displayAvatarURL() });
 
-  const row = new ActionRowBuilder().addComponents(
+  const rowAdd = new ActionRowBuilder().addComponents(
     new ButtonBuilder()
       .setCustomId("btn_add_produto")
       .setLabel("Adicionar Nova Roupa")
       .setEmoji("➕")
-      .setStyle(ButtonStyle.Secondary),
+      .setStyle(ButtonStyle.Secondary)
+  );
+
+  const rowClose = new ActionRowBuilder().addComponents(
     new ButtonBuilder()
       .setCustomId("btn_fechar_painel")
       .setLabel("Fechar Painel")
       .setEmoji("❌")
-      .setStyle(ButtonStyle.Secondary),
+      .setStyle(ButtonStyle.Secondary)
   );
 
-    await interaction.reply({ embeds: [embed], components: [row] });
+    await interaction.reply({ embeds: [embed], components: [rowAdd, rowClose] });
   },
 };
