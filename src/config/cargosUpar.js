@@ -1,0 +1,18 @@
+module.exports = {
+  "1498812662962978957": { sigla: "MB", nome: "Membro" },
+  "1499161311354032319": { sigla: "AV", nome: "Aviãozinho" },
+  "1499109039261356062": { sigla: "FG", nome: "Fogueteiro" },
+  "1499108787968282644": { sigla: "VP", nome: "Vapor" },
+  "1499161248569360435": { sigla: "SD", nome: "Soldado" },
+  "1499161315271512215": { sigla: "TF", nome: "Traficante" },
+  "1499161731585544395": { sigla: "FR", nome: "Frente" },
+  "1498812130412204173": { sigla: "E.P1", nome: "Elite P1" },
+  "1498812133755064320": { sigla: "E.TR", nome: "Elite Tiro" },
+  "1498811875679277137": { sigla: "GF", nome: "Gerente Financeiro" },
+  "1498811873573732423": { sigla: "GA", nome: "Gerente Ação" },
+  "1498811870705090631": { sigla: "GI", nome: "Gerente Inventory" },
+  "1498811867496189992": { sigla: "GR", nome: "Gerente Rec" },
+  "1498811878372016328": { sigla: "GE", nome: "Gerente Elite" },
+  "1498808114504531978": { sigla: "GM", nome: "General Manager" },
+  "1498811295825137714": { sigla: "G.FM", nome: "Gerente Farm" },
+};

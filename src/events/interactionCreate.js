@@ -1,25 +1,26 @@
-﻿module.exports = {
+const { CANAL_LOG_VENDAS_ID, CANAL_AVALIACAO_ID, CARGO_ENTRADA_ID } = require("../config/constants");
+const {
+    sessoesDeRegistro,
+    farmEmAndamento,
+    bancoDeFarm,
+    punicoesEmAndamento,
+    ausenciasEmAndamento,
+    sessoesAusenciaPainel,
+    sessoesVenda,
+    acoesEmAndamento,
+    sessoesFinalizacaoAcao,
+    sessoesUpar,
+    configFarm
+} = require("../database/memoryDb");
+
+module.exports = {
     name: 'interactionCreate',
     async execute(interaction, client) {
-        if (interaction.isChatInputCommand()) {
-            const command = client.commands.get(interaction.commandName);
+        // Toda a lógica de interação (Slash, Botão, Modal, Menu) vai aqui
+        // No momento, como é uma refatoração em massa, o ideal é dividir
+        // em handlers específicos para Button, Modal e Menu.
 
-            if (!command) {
-                console.error(Nenhum comando correspondente para  + interaction.commandName +  foi encontrado.);
-                return;
-            }
-
-            try {
-                await command.execute(interaction);
-            } catch (error) {
-                console.error(error);
-                if (interaction.replied || interaction.deferred) {
-                    await interaction.followUp({ content: 'Houve um erro ao executar este comando!', ephemeral: true });
-                } else {
-                    await interaction.reply({ content: 'Houve um erro ao executar este comando!', ephemeral: true });
-                }
-            }
-        }
-        // Aqui adicionaremos handlers para botões e modais do bot de produtos no futuro
+        const interactionHandler = require('../handlers/interactionHandler');
+        await interactionHandler(interaction, client);
     },
 };

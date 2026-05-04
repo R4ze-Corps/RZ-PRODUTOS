@@ -1,0 +1,20 @@
+module.exports = {
+  sessoesDeRegistro: new Map(),
+  farmEmAndamento: new Map(),
+  bancoDeFarm: new Map(),
+  punicoesEmAndamento: new Map(),
+  ausenciasEmAndamento: new Map(),
+  sessoesAusenciaPainel: new Map(),
+  sessoesVenda: new Map(),
+  acoesEmAndamento: new Map(),
+  sessoesFinalizacaoAcao: new Map(),
+  sessoesUpar: new Map(),
+  sessoesProdutos: new Map(),
+  configFarm: {
+    plastico: { nome: "Plástico Black", meta: "500" },
+    aluminio: { nome: "Alumínio", meta: "500" },
+    polvora: { nome: "Pólvora Preta", meta: "1000" },
+    ferro: { nome: "Barra de Ferro", meta: "1000" },
+    sd: { nome: "Cartão SD", meta: "500" },
+  },
+};
